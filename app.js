@@ -17,7 +17,12 @@ const play = `
         <button class="playerChoice">Scissors</button>
     </div>`;
 
-let var displayNumber = 0;
+var displaySetter = {
+	value: 0,
+	get display
+	
+	
+}
 
 function display(){
   document.getElementById("content").innerHTML = play
