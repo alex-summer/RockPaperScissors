@@ -5,20 +5,21 @@
        <link rel="stylesheet" type="text/css" href="./styles.css">
     </head>
     <body>
-        <header class=titleArea>
-            <h1>Rock Paper Scissors</h1>
-        </header>
+        
         <div class="flexContainer">
-                <main class= "content">
+                <header class=titleArea>
+                    <h1>Rock Paper Scissors</h1>
+                </header>
+                <main id= "content">
                     <h2>Number of games?</h2>
-                    <form>
+                    <form id="gameOptions">
                             <select class="playerChoice">
                                 <option value="1">1</option>
                                 <option value="3">3</option>
                                 <option value="5">5</option>
                                 <option value="10">10</option>
                             </select><br>
-                            <input class="playerChoice" type="submit" value="play">
+                            <input class="playerChoice" id="playButton" type="submit" value="play">
                     </form> 
                 </main>
         </div>

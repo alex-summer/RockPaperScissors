@@ -14,10 +14,10 @@ h1 {
 
 .flexContainer {
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: column nowrap;
     min-height: 100vh;
 }
-.content {
+#content {
     flex-grow: 1;
 }
 .playerChoices {
@@ -43,7 +43,17 @@ h1 {
 
 .titleArea {
     background-color: rgba(49, 46, 43, 1);
-    position: fixed;
+    
+}
+
+#playButton {
+    background-color: rgba(211, 126, 25, .8);
+    border: 3px solid rgb(205, 124, 24);
+}
+
+#playButton:hover {
+    background-color: rgb(205, 124, 24);;
+    box-shadow: 0 0 1rem rgb(205, 124, 24);;
 }
 
 
