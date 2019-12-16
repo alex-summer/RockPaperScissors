@@ -6,4 +6,9 @@ const play = `
   </div>
 `;
 
-document.getElementById("content").innerHTML = play
+function playGame(){
+  document.getElementById("content").innerHTML = play
+}
+
+
+document.getElementById("playButton").addEventlistener('click', playGame);
