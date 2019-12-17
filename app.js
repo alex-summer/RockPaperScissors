@@ -11,22 +11,61 @@ const home = `
     </form> `;
 
 const play = `
-    <div class="playerChoices">
-        <button class="playerChoice">Rock</button>
-        <button class="playerChoice">Paper</button>
-        <button class="playerChoice">Scissors</button>
-    </div>`;
+<h2>Score: 1-1</h2>
+<h2>Opponent Chose: Rock!</h2>
+<div class="playerChoices">
+    <button class="playerChoice" value ="Rock">Rock</button>
+    <button class="playerChoice" value ="Paper">Paper</button>
+    <button class="playerChoice" value="Scissors">Scissors</button>
+</div> `;
 
-var displaySetter = {
-	value: 0,
-	get display
-	
-	
+//Dynamically updates the screen based on what buttons are hit.
+class displaySetter {
+    constructor()
+    {
+        this.value = home;
+        this.setDisplay();
+    }
+
+    get displayScreen() {
+        return this.value
+    }
+	set displayScreen(value){
+        this.value = value;
+        this.setDisplay();
+    }
+
+    setDisplay() {
+        document.getElementById("content").innerHTML = this.value;
+    }	
 }
 
-function display(){
-  document.getElementById("content").innerHTML = play
+//Will contain most game logic
+
+class game {
+    
+    constructor(gameCount){
+        this.gameCount = gameCount;
+        displaySetter.displayScreen = play;
+        const playerChoices = Array.from(document.querySelectorAll('.playerChoice'));
+        playerChoices.forEach(playerChoice => playerChoice.addEventListener('click', playRound()));
+    }
+
+    computerChoice(){
+        choices = ["Rock", "Paper", "Scissors"]
+        computerChoice = choices[Math.floor(Math.random() * 3)];
+        return computerChoice;
+    }
+
+    playerChoice(){
+        
+    }
+
+    playRound(){
+
+    }
 }
 
-
-document.getElementById("playButton").addEventlistener('click', playGame);
+displaySetter = new displaySetter();
+game = new game(5);
+document.getElementById("playButton").addEventListener('click', function(){game.startGame()});
