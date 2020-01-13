@@ -27,7 +27,7 @@ h2 {
     min-height: 100vh;
 }
 
-.playerChoices {
+#playerChoices {
     text-align: center;
 }
 
@@ -37,7 +37,6 @@ h2 {
     transition-duration: 0.4s;
     background-color: rgba(211, 126, 25, .8);
     border: 3px solid rgb(205, 124, 24);
-    
     padding: 10px;
     margin: 20px;
     font-size: 50px;

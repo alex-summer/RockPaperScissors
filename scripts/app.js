@@ -15,28 +15,27 @@ home = `
 play = `
   <h2>Score: ${playerScore}-${computerScore}</h2>
   <h2>Opponent Chose: Rock!</h2>
-  <div class="playerChoices">
-  <button class="playerChoice" value ="Rock">Rock</button>
-  <button class="playerChoice" value ="Paper">Paper</button>
-  <button class="playerChoice" value="Scissors">Scissors</button>
+  <div id="playerChoices">
+  	<button class="playerChoice" value ="Rock">Rock</button>
+  	<button class="playerChoice" value ="Paper">Paper</button>
+  	<button class="playerChoice" value="Scissors">Scissors</button>
   </div> `;
 
 
 //Dynamically updates the screen based on what buttons are hit.
 class displaySetter {
 	constructor() {
-		const startPage = home;
-		this.displayScreen = startPage;
+		this.displayScreen = home;
 	}
-
+	//Grabs value of displaySetter.displayScreen
 	get displayScreen() {
 		return this.value
 	}
+	//runs setDisplay any time someone says displaysetter.displayScreen = 'xyz'
 	set displayScreen(page) {
-		this.newPage = page;
-		this.setDisplay(this.newPage);
+		this.setDisplay(page);
 	}
-
+	//Method for setting the display
 	setDisplay(newDisplay) {
 		document.getElementById("content").innerHTML = newDisplay;
 	}
@@ -47,8 +46,8 @@ class game {
 	constructor(gameCount) {
 		this.gameCount = gameCount;
 		displaySetter.displayScreen = play;
-		const playerChoices = Array.from(document.querySelectorAll('.playerChoice'));
-		playerChoices.forEach(playerChoice => playerChoice.addEventListener('click', this.playRound(e)));
+		const playerChoices = document.getElementById("playerChoices");
+		playerChoices.addEventListener("click", this.playRound)
 	}
 
 	computerChoice() {
@@ -63,7 +62,7 @@ class game {
 	}
 
 	playRound(e) {
-		var playerChoice = this.playerChoice = e;
+		var playerChoice = this.playerChoice = event.target.value;
 		console.log(playerChoice);
 	}
 }
