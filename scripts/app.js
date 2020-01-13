@@ -29,7 +29,7 @@ class displaySetter {
 	}
 	//Grabs value of displaySetter.displayScreen
 	get displayScreen() {
-		return this.value
+		return this;
 	}
 	//runs setDisplay any time someone says displaysetter.displayScreen = 'xyz'
 	set displayScreen(page) {
@@ -47,23 +47,41 @@ class game {
 		this.gameCount = gameCount;
 		displaySetter.displayScreen = play;
 		const playerChoices = document.getElementById("playerChoices");
-		playerChoices.addEventListener("click", this.playRound)
+		playerChoices.addEventListener("click", this.playRound);
 	}
 
-	computerChoice() {
-		choices = ["Rock", "Paper", "Scissors"]
-		computerChoice = choices[Math.floor(Math.random() * 3)];
-		return computerChoice;
-	}
-
-	set playerChoice(selection) {
-		this.choice = selection;
-		return this.choice;
-	}
-
-	playRound(e) {
-		var playerChoice = this.playerChoice = event.target.value;
-		console.log(playerChoice);
+	playRound() {
+		const choices = ["Rock", "Paper", "Scissors"];
+		var result;
+		var computerChoice = choices[Math.floor(Math.random() * 3)];
+		var playerChoice = event.target.value;
+		if(playerChoice == computerChoice){
+			result = "Tie";
+		}
+		else if (playerChoice == "Scissors"){
+			if(computerChoice == "Paper"){
+				result = "Win";
+			}
+			else if(computerChoice == "Rock"){
+				result = "Loss"
+			}
+		}
+		else if(playerChoice == "Paper"){
+			if(computerChoice == "Rock"){
+				result = "Win"
+			}
+			else if(computerChoice == "Scissors"){
+				result = "Loss"
+			}
+		}
+		else if(playerChoice == "Rock"){
+			if(computerChoice == "Scissors"){
+				result = "Win"
+			}
+			else if(computerChoice == "Paper"){
+				result = "Loss"
+			}
+		}
 	}
 }
 
